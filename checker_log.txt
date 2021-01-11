@@ -1,0 +1,162 @@
+
+java; task1; test 0
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/00.cnf'
+
+
+========================================
+
+
+java; task1; test 1
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/01.cnf'
+
+
+========================================
+
+
+java; task1; test 2
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/02.cnf'
+
+
+========================================
+
+
+java; task1; test 3
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/03.cnf'
+
+
+========================================
+
+
+java; task1; test 4
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/04.cnf'
+
+
+========================================
+
+
+java; task1; test 5
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/05.cnf'
+
+
+========================================
+
+
+java; task1; test 6
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/06.cnf'
+
+
+========================================
+
+
+java; task1; test 7
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/07.cnf'
+
+
+========================================
+
+
+java; task1; test 8
+
+stdout:
+test
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/task1/08.cnf'
+
+
+========================================
+
