@@ -88,14 +88,12 @@ public class Task1 extends Task {
             strLine = line.trim().split("\\s+");
             relations.add(new RelationEntity(Integer.parseInt(strLine[0]), Integer.parseInt(strLine[1])));
         }
-
     }
 
     @Override
     public void formulateOracleQuestion() throws IOException {
         // TODO: transform the current problem into a SAT problem and write it (oracleInFilename) in a format
         //  understood by the oracle
-        // pe linii vom avea familiile si pe coloane spioni
         int clausesNo = 0;
         clausesNo = clausesNo + relations.size() * spies;
         clausesNo = clausesNo + families;
@@ -129,9 +127,9 @@ public class Task1 extends Task {
             oracleAskString = oracleAskString + "0\n";
         }
 
-        for (int f = 1; f < families; f++) {
+        for (int f = 1; f <= families; f++) {
             for (int i = 1; i <= spies; i++) {
-                for (int j = i + 1;j <= spies; j++) {
+                for (int j = i + 1; j <= spies; j++) {
                     int elem1 = listKeys.indexOf("" + f + "-" + i) + 1;
                     int elem2 = listKeys.indexOf("" + f + "-" + j) + 1;
 
