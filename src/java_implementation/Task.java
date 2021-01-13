@@ -46,8 +46,6 @@ public abstract class Task {
      * @throws InterruptedException
      */
     public void askOracle() throws IOException, InterruptedException {
-        long startTime = System.nanoTime();
-
         ProcessBuilder builder = new ProcessBuilder();
         builder.redirectErrorStream(true);
         builder.command("python3", "sat_oracle.py", oracleInFilename, oracleOutFilename);
@@ -66,7 +64,5 @@ public abstract class Task {
             System.err.println(output.toString());
             System.exit(-1);
         }
-        long endTime = System.nanoTime();
-        System.out.println((endTime - startTime) / 1000000000);
     }
 }
