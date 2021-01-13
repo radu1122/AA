@@ -7,10 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Task1
@@ -51,6 +48,19 @@ class RelationEntity {
                 "fam1=" + fam1 +
                 ", fam2=" + fam2 +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RelationEntity that = (RelationEntity) o;
+        return fam1 == that.fam1 && fam2 == that.fam2;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fam1, fam2);
     }
 }
 

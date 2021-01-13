@@ -4,7 +4,10 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
@@ -21,6 +24,7 @@ public class Task2 extends Task {
     private int families;
     private int familyDimension;
     private final ArrayList<RelationEntity> relations = new ArrayList<>();
+
     private final LinkedHashMap<String, Integer> clauses = new LinkedHashMap<>();
     private String testOutputString;
 
@@ -57,10 +61,7 @@ public class Task2 extends Task {
         // TODO: transform the current problem into a SAT problem and write it (oracleInFilename) in a format
         //  understood by the oracle
         int clausesNo = 0;
-        clausesNo = clausesNo + familyDimension;
-//        clausesNo = clausesNo + families;
-//        clausesNo = clausesNo + families * ((spies * (spies - 1)) / 2);
-        String oracleHeader = "p cnf " + (families * familyDimension) + " " + clausesNo + "\n";
+
         String oracleAskString = "";
 
         for (int i = 1; i <= families; i++) {
@@ -73,23 +74,26 @@ public class Task2 extends Task {
 
         ArrayList<String> listKeys = new ArrayList<>(keys);
 
-        // step 1
-        for (int i = 1; i <= familyDimension; i++) {
-            for (int f = 1; f <= families; f++) {
-                int elem = listKeys.indexOf("" + f + "-" + i) + 1;
-                oracleAskString = oracleAskString + elem + " ";
-            }
-            oracleAskString = oracleAskString + "0\n";
-        }
+        // step 1 commented after I did some refactoring
+//        for (int i = 1; i <= familyDimension; i++) {
+//            for (int f = 1; f <= families; f++) {
+//                int elem = listKeys.indexOf("" + f + "-" + i) + 1;
+//                oracleAskString = oracleAskString + elem + " ";
+//            }
+//            clausesNo++;
+//            oracleAskString = oracleAskString + "0\n";
+//        }
 
+        // step 2
         for (int i = 1; i <= families; i++) {
             for (int j = i + 1; j <= families; j++) {
                 if (!hasEdge(i, j)) {
                     for (int i1 = 1; i1 <= familyDimension; i1++) {
-                        for (int j1 = i + 1; j1 <= familyDimension; j1++) {
+                        for (int j1 = 1; j1 <= familyDimension; j1++) {
                             int elem1 = listKeys.indexOf("" + i + "-" + i1) + 1;
                             int elem2 = listKeys.indexOf("" + j + "-" + j1) + 1;
 
+                            clausesNo++;
                             oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
                         }
                     }
@@ -97,16 +101,56 @@ public class Task2 extends Task {
             }
         }
 
+        //step 3
+        for (int dim = 1; dim <= familyDimension; dim++) {
+            String stringClause = "";
+            for (int i = 1; i <= families; i++) {
+
+                int elem = listKeys.indexOf("" + i + "-" + dim) + 1;
+                stringClause = stringClause + elem + " ";
+
+                for (int j = i + 1; j <= families; j++) {
+                    int elem1 = listKeys.indexOf("" + i + "-" + dim) + 1;
+                    int elem2 = listKeys.indexOf("" + j + "-" + dim) + 1;
+
+                    clausesNo++;
+                    oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                }
+            }
+            clausesNo++;
+            oracleAskString = oracleAskString + stringClause + "0\n";
+        }
+
+        for (int i = 1; i <= families; i++) {
+            for (int dim = 1; dim <= familyDimension; dim++) {
+                for (int dim1 = dim + 1; dim1 <= familyDimension; dim1++) {
+                    int elem1 = listKeys.indexOf("" + i + "-" + dim) + 1;
+                    int elem2 = listKeys.indexOf("" + i + "-" + dim1) + 1;
+
+                    clausesNo++;
+                    oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                }
+            }
+        }
+
+        String oracleHeader = "p cnf " + (families * familyDimension) + " " + clausesNo + "\n";
+
+        oracleAskString = oracleHeader + oracleAskString;
+
+        PrintWriter writer = new PrintWriter(oracleInFilename, String.valueOf(StandardCharsets.UTF_8));
+        writer.print(oracleAskString);
+        writer.close();
     }
 
     private boolean hasEdge(int fam1, int fam2) {
-        for(RelationEntity element: relations) {
-            if (element.getFam1() == fam1 && element.getFam2() == fam2) {
-                return true;
-            }
-            if (element.getFam1() == fam2 && element.getFam2() == fam1) {
-                return true;
-            }
+//        for(RelationEntity element: relations) {
+//            if (element.getFam1() == fam1 && element.getFam2() == fam2) {
+//                return true;
+//            }
+//        }
+        RelationEntity relation = new RelationEntity(fam1, fam2);
+        if (relations.contains(relation)) {
+            return true;
         }
         return false;
     }
@@ -114,10 +158,49 @@ public class Task2 extends Task {
     @Override
     public void decipherOracleAnswer() throws IOException {
         // TODO: extract the current problem's answer from the answer given by the oracle (oracleOutFilename)
+        testOutputString = "";
+        BufferedReader reader =
+                new BufferedReader(new FileReader(oracleOutFilename));
+
+        String line = reader.readLine();
+
+        if (line.equals("False")) {
+            testOutputString = "False";
+            return;
+        }
+
+        testOutputString = "True\n";
+
+        line = reader.readLine();
+        int n = Integer.parseInt(line);
+
+        line = reader.readLine();
+        String[] strLine = line.trim().split("\\s+");
+
+        boolean firstElem = true;
+
+        Set<String> keys = clauses.keySet();
+        ArrayList<String> listKeys = new ArrayList<>(keys);
+        for (int i = 0; i < n; i++) {
+            int activeElem = Integer.parseInt(strLine[i]);
+            if (activeElem > 0) {
+                String elemKey = listKeys.get(activeElem - 1);
+                String elemFam = String.valueOf(clauses.get(elemKey));
+                if (firstElem) {
+                    testOutputString = testOutputString + elemFam;
+                    firstElem = false;
+                } else {
+                    testOutputString = testOutputString + " " + elemFam;
+                }
+            }
+        }
     }
 
     @Override
     public void writeAnswer() throws IOException {
         // TODO: write the answer to the current problem (outFilename)
+        PrintWriter writer = new PrintWriter(outFilename, String.valueOf(StandardCharsets.UTF_8));
+        writer.print(testOutputString);
+        writer.close();
     }
 }
