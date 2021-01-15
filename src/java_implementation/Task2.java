@@ -143,11 +143,6 @@ public class Task2 extends Task {
     }
 
     private boolean hasEdge(int fam1, int fam2) {
-//        for(RelationEntity element: relations) {
-//            if (element.getFam1() == fam1 && element.getFam2() == fam2) {
-//                return true;
-//            }
-//        }
         RelationEntity relation = new RelationEntity(fam1, fam2);
         if (relations.contains(relation)) {
             return true;
