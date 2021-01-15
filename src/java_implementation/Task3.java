@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Task3
@@ -65,9 +67,28 @@ public class Task3 extends Task {
         }
     }
 
-    public void reduceToTask2(int k) {
+    public void reduceToTask2(int k) throws IOException {
         // TODO: reduce the current problem to Task2
+        String task2InputString = "";
+        String relationsString = "";
+        int relationsNo = 0;
 
+        for (int i = 0; i <= families; i ++) {
+            for (int j = i + 1; j <= families; j++) {
+                if (!hasEdge(i, j)) {
+                    relationsNo++;
+                    relationsString = relationsString + i + " " + j + "\n";
+                }
+            }
+        }
+
+        task2InputString = families + " " + relationsNo + " " + k + "\n" + relationsString;
+
+        System.out.println(task2InputString);
+
+        PrintWriter writer = new PrintWriter(task2InFilename, String.valueOf(StandardCharsets.UTF_8));
+        writer.print(task2InputString);
+        writer.close();
     }
 
     private boolean hasEdge(int fam1, int fam2) {
@@ -82,7 +103,7 @@ public class Task3 extends Task {
         // TODO: extract the current problem's answer from Task2's answer
         testOutputString = "";
         BufferedReader reader =
-                new BufferedReader(new FileReader(oracleOutFilename));
+                new BufferedReader(new FileReader(task2OutFilename));
 
         String line = reader.readLine();
 
@@ -92,7 +113,7 @@ public class Task3 extends Task {
         line = reader.readLine();
         String[] strLine = line.trim().split("\\s+");
 
-        ArrayList<String> strLineArr = (ArrayList<String>) Arrays.asList(strLine);
+        List strLineArr = Arrays.asList(strLine);
 
         boolean firstElem = true;
         for (int i = 1; i <= families; i++) {
