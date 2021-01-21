@@ -108,7 +108,8 @@ public class Task1 extends Task {
         clausesNo = clausesNo + relations.size() * spies;
         clausesNo = clausesNo + families;
         clausesNo = clausesNo + families * ((spies * (spies - 1)) / 2);
-        String oracleAskString = "p cnf " + (families * spies) + " " + clausesNo + "\n";
+        StringBuilder oracleAskString = new StringBuilder();
+        oracleAskString.append("p cnf ").append(families * spies).append(" ").append(clausesNo).append("\n");
 
         for (int i = 1; i <= families; i++) {
             for (int j = 1; j <= spies; j++) {
@@ -116,40 +117,31 @@ public class Task1 extends Task {
             }
         }
 
-        Set<String> keys = clauses.keySet();
-
-        ArrayList<String> listKeys = new ArrayList<>(keys);
-
         for (RelationEntity element : relations) {
             for (int i = 1; i <= spies; i++) {
-                int elem1 = listKeys.indexOf("" + element.getFam1() + "-" + i) + 1;
-                int elem2 = listKeys.indexOf("" + element.getFam2() + "-" + i) + 1;
-
-                oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                oracleAskString.append("-").append((element.getFam1() - 1) * spies + i)
+                        .append(" -").append((element.getFam2() - 1) * spies + i).append(" 0\n");
             }
         }
 
         for (int f = 1; f <= families; f++) {
             for (int i = 1; i <= spies; i++) {
-                int elem = listKeys.indexOf("" + f + "-" + i) + 1;
-                oracleAskString = oracleAskString + elem + " ";
+                oracleAskString.append((f - 1) * spies + i).append(" ");
             }
-            oracleAskString = oracleAskString + "0\n";
+            oracleAskString.append("0\n");
         }
 
         for (int f = 1; f <= families; f++) {
             for (int i = 1; i <= spies; i++) {
                 for (int j = i + 1; j <= spies; j++) {
-                    int elem1 = listKeys.indexOf("" + f + "-" + i) + 1;
-                    int elem2 = listKeys.indexOf("" + f + "-" + j) + 1;
-
-                    oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                    oracleAskString.append("-").append((f - 1) * spies + i)
+                            .append(" -").append((f - 1) * spies + j).append(" 0\n");
                 }
             }
         }
 
             PrintWriter writer = new PrintWriter(oracleInFilename, String.valueOf(StandardCharsets.UTF_8));
-        writer.print(oracleAskString);
+        writer.print(oracleAskString.toString());
         writer.close();
     }
 

@@ -5,11 +5,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Task2
@@ -27,6 +25,7 @@ public class Task2 extends Task {
 
     private final LinkedHashMap<String, Integer> clauses = new LinkedHashMap<>();
     private String testOutputString;
+    private int[][] familiesMatrix;
 
     @Override
     public void solve() throws IOException, InterruptedException {
@@ -48,11 +47,20 @@ public class Task2 extends Task {
         this.families = Integer.parseInt(strLine[0]);
         int relationsNo = Integer.parseInt(strLine[1]);
         this.familyDimension = Integer.parseInt(strLine[2]);
+        this.familiesMatrix = new int[families][families];
+
+        for(int i = 0; i < families; i++) {
+            for (int j = 0; j < families; j++) {
+                familiesMatrix[i][j] = 0;
+            }
+        }
 
         for (int i = 0; i < relationsNo; i++) {
             line = reader.readLine();
             strLine = line.trim().split("\\s+");
             relations.add(new RelationEntity(Integer.parseInt(strLine[0]), Integer.parseInt(strLine[1])));
+            familiesMatrix[Integer.parseInt(strLine[0]) - 1][Integer.parseInt(strLine[1]) - 1] = 1;
+            familiesMatrix[Integer.parseInt(strLine[1]) - 1][Integer.parseInt(strLine[0]) - 1] = 1;
         }
     }
 
@@ -62,17 +70,13 @@ public class Task2 extends Task {
         //  understood by the oracle
         int clausesNo = 0;
 
-        String oracleAskString = "";
+        StringBuilder oracleAskString = new StringBuilder();
 
         for (int i = 1; i <= families; i++) {
             for (int j = 1; j <= familyDimension; j++) {
                 clauses.put("" + i + "-" + j, i);
             }
         }
-
-        Set<String> keys = clauses.keySet();
-
-        ArrayList<String> listKeys = new ArrayList<>(keys);
 
         // step 1 commented after I did some refactoring
 //        for (int i = 1; i <= familyDimension; i++) {
@@ -87,14 +91,12 @@ public class Task2 extends Task {
         // step 2
         for (int i = 1; i <= families; i++) {
             for (int j = i + 1; j <= families; j++) {
-                if (!hasEdge(i, j)) {
+                if (familiesMatrix[i - 1][j - 1] == 0) {
                     for (int i1 = 1; i1 <= familyDimension; i1++) {
                         for (int j1 = 1; j1 <= familyDimension; j1++) {
-                            int elem1 = listKeys.indexOf("" + i + "-" + i1) + 1;
-                            int elem2 = listKeys.indexOf("" + j + "-" + j1) + 1;
-
                             clausesNo++;
-                            oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                            oracleAskString.append("-").append((i - 1) * familyDimension + i1).
+                                    append(" -").append((j - 1) * familyDimension + j1).append(" 0\n");
                         }
                     }
                 }
@@ -103,42 +105,34 @@ public class Task2 extends Task {
 
         //step 3
         for (int dim = 1; dim <= familyDimension; dim++) {
-            String stringClause = "";
+            StringBuilder stringClause = new StringBuilder();
             for (int i = 1; i <= families; i++) {
-
-                int elem = listKeys.indexOf("" + i + "-" + dim) + 1;
-                stringClause = stringClause + elem + " ";
+                stringClause.append((i - 1) * familyDimension + dim).append(" ");
 
                 for (int j = i + 1; j <= families; j++) {
-                    int elem1 = listKeys.indexOf("" + i + "-" + dim) + 1;
-                    int elem2 = listKeys.indexOf("" + j + "-" + dim) + 1;
-
                     clausesNo++;
-                    oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                    oracleAskString.append("-").append((i - 1) * familyDimension + dim)
+                            .append(" -").append((j - 1) * familyDimension + dim).append(" 0\n");
                 }
             }
             clausesNo++;
-            oracleAskString = oracleAskString + stringClause + "0\n";
+            oracleAskString.append(stringClause.toString()).append("0\n");
         }
 
         for (int i = 1; i <= families; i++) {
             for (int dim = 1; dim <= familyDimension; dim++) {
                 for (int dim1 = dim + 1; dim1 <= familyDimension; dim1++) {
-                    int elem1 = listKeys.indexOf("" + i + "-" + dim) + 1;
-                    int elem2 = listKeys.indexOf("" + i + "-" + dim1) + 1;
-
                     clausesNo++;
-                    oracleAskString = oracleAskString + "-" + elem1 + " -" + elem2 + " 0\n";
+                    oracleAskString.append("-").append((i - 1) * familyDimension + dim)
+                            .append(" -").append((i - 1) * familyDimension + dim1).append(" 0\n");
                 }
             }
         }
 
         String oracleHeader = "p cnf " + (families * familyDimension) + " " + clausesNo + "\n";
 
-        oracleAskString = oracleHeader + oracleAskString;
-
         PrintWriter writer = new PrintWriter(oracleInFilename, String.valueOf(StandardCharsets.UTF_8));
-        writer.print(oracleAskString);
+        writer.print(oracleHeader + oracleAskString.toString());
         writer.close();
     }
 
