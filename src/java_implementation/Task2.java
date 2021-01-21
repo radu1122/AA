@@ -21,8 +21,6 @@ public class Task2 extends Task {
     // TODO: define necessary variables and/or data structures
     private int families;
     private int familyDimension;
-    private final ArrayList<RelationEntity> relations = new ArrayList<>();
-
     private final LinkedHashMap<String, Integer> clauses = new LinkedHashMap<>();
     private String testOutputString;
     private int[][] familiesMatrix;
@@ -58,7 +56,6 @@ public class Task2 extends Task {
         for (int i = 0; i < relationsNo; i++) {
             line = reader.readLine();
             strLine = line.trim().split("\\s+");
-            relations.add(new RelationEntity(Integer.parseInt(strLine[0]), Integer.parseInt(strLine[1])));
             familiesMatrix[Integer.parseInt(strLine[0]) - 1][Integer.parseInt(strLine[1]) - 1] = 1;
             familiesMatrix[Integer.parseInt(strLine[1]) - 1][Integer.parseInt(strLine[0]) - 1] = 1;
         }
@@ -72,6 +69,7 @@ public class Task2 extends Task {
 
         StringBuilder oracleAskString = new StringBuilder();
 
+        clauses.clear();
         for (int i = 1; i <= families; i++) {
             for (int j = 1; j <= familyDimension; j++) {
                 clauses.put("" + i + "-" + j, i);
@@ -134,14 +132,6 @@ public class Task2 extends Task {
         PrintWriter writer = new PrintWriter(oracleInFilename, String.valueOf(StandardCharsets.UTF_8));
         writer.print(oracleHeader + oracleAskString.toString());
         writer.close();
-    }
-
-    private boolean hasEdge(int fam1, int fam2) {
-        RelationEntity relation = new RelationEntity(fam1, fam2);
-        if (relations.contains(relation)) {
-            return true;
-        }
-        return false;
     }
 
     @Override

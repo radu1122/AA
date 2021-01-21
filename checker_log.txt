@@ -1,0 +1,595 @@
+
+java; bonus; test 0
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/00.wcnf'
+
+
+========================================
+
+
+java; bonus; test 1
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/01.wcnf'
+
+
+========================================
+
+
+java; bonus; test 2
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/02.wcnf'
+
+
+========================================
+
+
+java; bonus; test 3
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/03.wcnf'
+
+
+========================================
+
+
+java; bonus; test 4
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/04.wcnf'
+
+
+========================================
+
+
+java; bonus; test 5
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/05.wcnf'
+
+
+========================================
+
+
+java; bonus; test 6
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/06.wcnf'
+
+
+========================================
+
+
+java; bonus; test 7
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/07.wcnf'
+
+
+========================================
+
+
+java; bonus; test 8
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/08.wcnf'
+
+
+========================================
+
+
+java; bonus; test 9
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/09.wcnf'
+
+
+========================================
+
+
+java; bonus; test 10
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/10.wcnf'
+
+
+========================================
+
+
+java; bonus; test 11
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/11.wcnf'
+
+
+========================================
+
+
+java; bonus; test 12
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/12.wcnf'
+
+
+========================================
+
+
+java; bonus; test 13
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/13.wcnf'
+
+
+========================================
+
+
+java; bonus; test 14
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/14.wcnf'
+
+
+========================================
+
+
+java; bonus; test 15
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/15.wcnf'
+
+
+========================================
+
+
+java; bonus; test 16
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/16.wcnf'
+
+
+========================================
+
+
+java; bonus; test 17
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/17.wcnf'
+
+
+========================================
+
+
+java; bonus; test 18
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/18.wcnf'
+
+
+========================================
+
+
+java; bonus; test 19
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/19.wcnf'
+
+
+========================================
+
+
+java; bonus; test 20
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/20.wcnf'
+
+
+========================================
+
+
+java; bonus; test 21
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/21.wcnf'
+
+
+========================================
+
+
+java; bonus; test 22
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/22.wcnf'
+
+
+========================================
+
+
+java; bonus; test 23
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/23.wcnf'
+
+
+========================================
+
+
+java; bonus; test 24
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/24.wcnf'
+
+
+========================================
+
+
+java; bonus; test 25
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/25.wcnf'
+
+
+========================================
+
+
+java; bonus; test 26
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/26.wcnf'
+
+
+========================================
+
+
+java; bonus; test 27
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/27.wcnf'
+
+
+========================================
+
+
+java; bonus; test 28
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/28.wcnf'
+
+
+========================================
+
+
+java; bonus; test 29
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/29.wcnf'
+
+
+========================================
+
+
+java; bonus; test 30
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/30.wcnf'
+
+
+========================================
+
+
+java; bonus; test 31
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/31.wcnf'
+
+
+========================================
+
+
+java; bonus; test 32
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/32.wcnf'
+
+
+========================================
+
+
+java; bonus; test 33
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/33.wcnf'
+
+
+========================================
+
+
+java; bonus; test 34
+
+stdout:
+
+stderr:
+Error encountered while running oracle
+Traceback (most recent call last):
+  File "sat_oracle.py", line 53, in <module>
+    solve_sat(sys.argv[1], sys.argv[2])
+  File "sat_oracle.py", line 39, in solve_sat
+    with open(input_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'sat_in/bonus/34.wcnf'
+
+
+========================================
+

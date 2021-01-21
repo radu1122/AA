@@ -22,7 +22,7 @@ public class Task3 extends Task {
     String task2OutFilename;
     // TODO: define necessary variables and/or data structures
     private int families;
-    private final ArrayList<RelationEntity> relations = new ArrayList<>();
+    private int[][] familiesMatrix;
     private String testOutputString;
 
 
@@ -59,11 +59,18 @@ public class Task3 extends Task {
         String[] strLine = line.trim().split("\\s+");
         this.families = Integer.parseInt(strLine[0]);
         int relationsNo = Integer.parseInt(strLine[1]);
+        this.familiesMatrix = new int[families][families];
 
+        for(int i = 0; i < families; i++) {
+            for (int j = 0; j < families; j++) {
+                familiesMatrix[i][j] = 0;
+            }
+        }
         for (int i = 0; i < relationsNo; i++) {
             line = reader.readLine();
             strLine = line.trim().split("\\s+");
-            relations.add(new RelationEntity(Integer.parseInt(strLine[0]), Integer.parseInt(strLine[1])));
+            familiesMatrix[Integer.parseInt(strLine[0]) - 1][Integer.parseInt(strLine[1]) - 1] = 1;
+            familiesMatrix[Integer.parseInt(strLine[1]) - 1][Integer.parseInt(strLine[0]) - 1] = 1;
         }
     }
 
@@ -73,9 +80,9 @@ public class Task3 extends Task {
         String relationsString = "";
         int relationsNo = 0;
 
-        for (int i = 0; i <= families; i ++) {
+        for (int i = 1; i <= families; i ++) {
             for (int j = i + 1; j <= families; j++) {
-                if (!hasEdge(i, j)) {
+                if (familiesMatrix[i - 1][j - 1] == 0) {
                     relationsNo++;
                     relationsString = relationsString + i + " " + j + "\n";
                 }
@@ -84,20 +91,11 @@ public class Task3 extends Task {
 
         task2InputString = families + " " + relationsNo + " " + k + "\n" + relationsString;
 
-        System.out.println(task2InputString);
-
         PrintWriter writer = new PrintWriter(task2InFilename, String.valueOf(StandardCharsets.UTF_8));
         writer.print(task2InputString);
         writer.close();
     }
 
-    private boolean hasEdge(int fam1, int fam2) {
-        RelationEntity relation = new RelationEntity(fam1, fam2);
-        if (relations.contains(relation)) {
-            return true;
-        }
-        return false;
-    }
 
     public boolean extractAnswerFromTask2() throws IOException {
         // TODO: extract the current problem's answer from Task2's answer
