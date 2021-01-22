@@ -93,7 +93,7 @@ public class Task1 extends Task {
         int relationsNo = Integer.parseInt(strLine[1]);
         this.spies = Integer.parseInt(strLine[2]);
 
-        for (int i = 0; i < relationsNo; i++) {
+        for (int i = 0; i < relationsNo; i++) { // O(n)
             line = reader.readLine();
             strLine = line.trim().split("\\s+");
             relations.add(new RelationEntity(Integer.parseInt(strLine[0]), Integer.parseInt(strLine[1])));
@@ -111,29 +111,34 @@ public class Task1 extends Task {
         StringBuilder oracleAskString = new StringBuilder();
         oracleAskString.append("p cnf ").append(families * spies).append(" ").append(clausesNo).append("\n");
 
-        for (int i = 1; i <= families; i++) {
-            for (int j = 1; j <= spies; j++) {
+        // O(f * s)
+        for (int i = 1; i <= families; i++) { // O(f)
+            for (int j = 1; j <= spies; j++) { // O(s)
                 clauses.put("" + i + "-" + j, j);
             }
         }
 
-        for (RelationEntity element : relations) {
-            for (int i = 1; i <= spies; i++) {
+        // O(r * s)
+        for (RelationEntity element : relations) { // O(r)
+            for (int i = 1; i <= spies; i++) { // O(s)
                 oracleAskString.append("-").append((element.getFam1() - 1) * spies + i)
                         .append(" -").append((element.getFam2() - 1) * spies + i).append(" 0\n");
             }
         }
 
-        for (int f = 1; f <= families; f++) {
-            for (int i = 1; i <= spies; i++) {
+        // O(f * s)
+        for (int f = 1; f <= families; f++) { // O(f)
+            for (int i = 1; i <= spies; i++) { // O(s)
                 oracleAskString.append((f - 1) * spies + i).append(" ");
             }
             oracleAskString.append("0\n");
         }
 
-        for (int f = 1; f <= families; f++) {
-            for (int i = 1; i <= spies; i++) {
-                for (int j = i + 1; j <= spies; j++) {
+
+        // O(f * s * log s)
+        for (int f = 1; f <= families; f++) { // O(f)
+            for (int i = 1; i <= spies; i++) { // O(s)
+                for (int j = i + 1; j <= spies; j++) { // O(log s)
                     oracleAskString.append("-").append((f - 1) * spies + i)
                             .append(" -").append((f - 1) * spies + j).append(" 0\n");
                 }
@@ -172,7 +177,7 @@ public class Task1 extends Task {
 
         ArrayList<String> listKeys = new ArrayList<>(keys);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { // O(n)
             int activeElem = Integer.parseInt(strLine[i]);
             if (activeElem > 0) {
                 String elemKey = listKeys.get(activeElem - 1);

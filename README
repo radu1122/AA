@@ -1,0 +1,20 @@
+Copyright Radu-Andrei Dumitrescu 322CA 2021
+
+Am ales sa fac implementarea in java
+
+-----------------------------------------------------------
+
+Task 1:
+   - Practic am redus problema ca problema colorarii unei harti cu k culori
+   - Pentru fiecare nod (familie) am creat k variabile, k fiind numarul de spioni
+   - Am generat 2 tipuri de clauze pentru aceasta problema
+        - 2 noduri adiacente nu pot avea aceeasi culoare
+        - fiecare nod trebuie sa aiba strict o singura culoare, aceasta clauza se transpune astfel:
+            - fiecare nod trebuie sa aiba cel putin o culoare
+            - niciun nod nu poate avea mai mult de o culoare
+   - Complexitatea (mai multe detalii legat de complexitatea pe parcurs a functiilor gasiti in comentariile din cod)
+        - functia readProblemData: O(n); n = numarul de relatii intre familii
+        - functia formulateOracleQuestion: O(s * (r + f * log s)); s = numar spioni; f = numar familii; r = numar relatii
+        - functia decipherOracleAnswer: O(n); n = numarul de variabile
+        - functia writeAnswer: O(1)
+
