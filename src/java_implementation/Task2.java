@@ -47,13 +47,13 @@ public class Task2 extends Task {
         this.familyDimension = Integer.parseInt(strLine[2]);
         this.familiesMatrix = new int[families][families];
 
-        for(int i = 0; i < families; i++) {
-            for (int j = 0; j < families; j++) {
+        for(int i = 0; i < families; i++) { // O(f)
+            for (int j = 0; j < families; j++) { // O(f)
                 familiesMatrix[i][j] = 0;
             }
         }
 
-        for (int i = 0; i < relationsNo; i++) {
+        for (int i = 0; i < relationsNo; i++) { // O(r)
             line = reader.readLine();
             strLine = line.trim().split("\\s+");
             familiesMatrix[Integer.parseInt(strLine[0]) - 1][Integer.parseInt(strLine[1]) - 1] = 1;
@@ -70,8 +70,8 @@ public class Task2 extends Task {
         StringBuilder oracleAskString = new StringBuilder();
 
         clauses.clear();
-        for (int i = 1; i <= families; i++) {
-            for (int j = 1; j <= familyDimension; j++) {
+        for (int i = 1; i <= families; i++) { // O(f)
+            for (int j = 1; j <= familyDimension; j++) { // O(k)
                 clauses.put("" + i + "-" + j, i);
             }
         }
@@ -87,11 +87,11 @@ public class Task2 extends Task {
 //        }
 
         // step 2
-        for (int i = 1; i <= families; i++) {
-            for (int j = i + 1; j <= families; j++) {
+        for (int i = 1; i <= families; i++) { // O(f)
+            for (int j = i + 1; j <= families; j++) { // O(f)
                 if (familiesMatrix[i - 1][j - 1] == 0) {
-                    for (int i1 = 1; i1 <= familyDimension; i1++) {
-                        for (int j1 = 1; j1 <= familyDimension; j1++) {
+                    for (int i1 = 1; i1 <= familyDimension; i1++) { // O(k)
+                        for (int j1 = 1; j1 <= familyDimension; j1++) { // O(k)
                             clausesNo++;
                             oracleAskString.append("-").append((i - 1) * familyDimension + i1).
                                     append(" -").append((j - 1) * familyDimension + j1).append(" 0\n");
@@ -102,12 +102,12 @@ public class Task2 extends Task {
         }
 
         //step 3
-        for (int dim = 1; dim <= familyDimension; dim++) {
+        for (int dim = 1; dim <= familyDimension; dim++) { // O(k)
             StringBuilder stringClause = new StringBuilder();
-            for (int i = 1; i <= families; i++) {
+            for (int i = 1; i <= families; i++) { // O(f)
                 stringClause.append((i - 1) * familyDimension + dim).append(" ");
 
-                for (int j = i + 1; j <= families; j++) {
+                for (int j = i + 1; j <= families; j++) { // O(f)
                     clausesNo++;
                     oracleAskString.append("-").append((i - 1) * familyDimension + dim)
                             .append(" -").append((j - 1) * familyDimension + dim).append(" 0\n");
@@ -117,9 +117,9 @@ public class Task2 extends Task {
             oracleAskString.append(stringClause.toString()).append("0\n");
         }
 
-        for (int i = 1; i <= families; i++) {
-            for (int dim = 1; dim <= familyDimension; dim++) {
-                for (int dim1 = dim + 1; dim1 <= familyDimension; dim1++) {
+        for (int i = 1; i <= families; i++) { // O(f)
+            for (int dim = 1; dim <= familyDimension; dim++) { // O(k)
+                for (int dim1 = dim + 1; dim1 <= familyDimension; dim1++) { // O(k)
                     clausesNo++;
                     oracleAskString.append("-").append((i - 1) * familyDimension + dim)
                             .append(" -").append((i - 1) * familyDimension + dim1).append(" 0\n");
@@ -160,7 +160,7 @@ public class Task2 extends Task {
 
         Set<String> keys = clauses.keySet();
         ArrayList<String> listKeys = new ArrayList<>(keys);
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { // O(n)
             int activeElem = Integer.parseInt(strLine[i]);
             if (activeElem > 0) {
                 String elemKey = listKeys.get(activeElem - 1);

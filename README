@@ -2,7 +2,7 @@ Copyright Radu-Andrei Dumitrescu 322CA 2021
 
 Am ales sa fac implementarea in java
 
------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
 
 Task 1:
    - Practic am redus problema ca problema colorarii unei harti cu k culori
@@ -17,4 +17,35 @@ Task 1:
         - functia formulateOracleQuestion: O(s * (r + f * log s)); s = numar spioni; f = numar familii; r = numar relatii
         - functia decipherOracleAnswer: O(n); n = numarul de variabile
         - functia writeAnswer: O(1)
+        - unde nu am trecut complexitatea in cod inseamna ca este O(1)
 
+-----------------------------------------------------------------------------------------------------------------------
+
+Task 2:
+   - Taskul acesta s-a redus la problema celei mai mari clici dintr-un graf
+   - Pentru fiecare nod (familie) am creat k variabile, k fiind numarul de clicii maxime cautate
+   - Am generat 3 tipuri de clauze:
+        - 1. pe fiecare pozitie a clicii trebuie sa fie exact o familie
+        - 2. pentru fiecare non-relatie intre 2 familii nu pot fi amandoua in clica
+        - 3. un nod nu poate fi decat pe maxim o pozitie in clica
+   - Dupa optimizarea codului am unificat loop-ul pentru crearea clauzei 1 cu 3
+   - Complexitatea (mai multe detalii legat de complexitatea pe parcurs a functiilor gasiti in comentariile din cod)
+        - functia readProblemData: O(f^2 + r); f = numarul de familii; r = numarull de relatii intre ele
+        - functia formulateOracleQuestion: O(f^2 * k^2); f = numarull de familii; k = numarull clicii cautate
+        - functia decipherOracleAnswer: O(n); n = numarul de variabile
+        - functia writeAnswer: O(1)
+        - unde nu am trecut complexitatea in cod inseamna ca este O(1)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+Task 3:
+   - Am redus acest task la taskul 2
+   - M-am folosit de teorema care spune astfel: complementul clicii maxime extras din complementul grafului initial
+      sunt nodurile care trebuie extrase pentru a nu ramane nicio relatie intre nodurile ramase
+   - Complexitatea (mai multe detalii legat de complexitatea pe parcurs a functiilor gasiti in comentariile din cod)
+
+
+
+Probleme intampinate:
+    - initial am folosit concatenate de stringuri ccu "+" care se face in O(n) si algoritmul rula intr-un timp mult mai
+      mare pe testele mari, asa ca am schimbat implementarea folosing String Builder
